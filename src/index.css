@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.3s ease-out;
+}
+
+/* Custom scrollbar styles */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: rgba(2, 6, 23, 0.7);
+  border-radius: 10px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.35);
+  border-radius: 10px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.55);
+}
+
+/* Prevent scroll jump */
+.overflow-y-auto {
+  overflow-anchor: auto;
+}
+
+/* Smooth scrolling */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Subtle global transitions for a polished feel */
+button, a, input, textarea, select {
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+}
+
+button {
+  --btn-outline-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.10);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow, 0 0 #0000), var(--btn-outline-shadow);
+}
+
+button:hover {
+  --btn-outline-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+}
+
+button:disabled {
+  --btn-outline-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+:root:not([data-theme="neo"]) :not(button):not(a):not(input):not(textarea):not(select).border,
+:root:not([data-theme="neo"]) :not(button):not(a):not(input):not(textarea):not(select).border-2,
+:root:not([data-theme="neo"]) :not(button):not(a):not(input):not(textarea):not(select).border-4,
+:root:not([data-theme="neo"]) :not(button):not(a):not(input):not(textarea):not(select).border-b,
+:root:not([data-theme="neo"]) :not(button):not(a):not(input):not(textarea):not(select).border-b-2,
+:root:not([data-theme="neo"]) :not(button):not(a):not(input):not(textarea):not(select).border-b-4,
+:root:not([data-theme="neo"]) :not(button):not(a):not(input):not(textarea):not(select).border-t,
+:root:not([data-theme="neo"]) :not(button):not(a):not(input):not(textarea):not(select).border-t-2,
+:root:not([data-theme="neo"]) :not(button):not(a):not(input):not(textarea):not(select).border-t-4,
+:root:not([data-theme="neo"]) :not(button):not(a):not(input):not(textarea):not(select).border-l,
+:root:not([data-theme="neo"]) :not(button):not(a):not(input):not(textarea):not(select).border-l-2,
+:root:not([data-theme="neo"]) :not(button):not(a):not(input):not(textarea):not(select).border-l-4,
+:root:not([data-theme="neo"]) :not(button):not(a):not(input):not(textarea):not(select).border-r,
+:root:not([data-theme="neo"]) :not(button):not(a):not(input):not(textarea):not(select).border-r-2,
+:root:not([data-theme="neo"]) :not(button):not(a):not(input):not(textarea):not(select).border-r-4,
+:root:not([data-theme="neo"]) :not(button):not(a):not(input):not(textarea):not(select).border-dashed {
+  border-color: transparent !important;
+}
+
+:root:not([data-theme="neo"]) .ring,
+:root:not([data-theme="neo"]) .ring-1,
+:root:not([data-theme="neo"]) .ring-2,
+:root:not([data-theme="neo"]) .ring-4,
+:root:not([data-theme="neo"]) .ring-8 {
+  --tw-ring-shadow: 0 0 #0000 !important;
+  --tw-ring-offset-shadow: 0 0 #0000 !important;
+}
+
+:root:not([data-theme="neo"]) .focus\:ring-1:focus,
+:root:not([data-theme="neo"]) .focus\:ring-2:focus,
+:root:not([data-theme="neo"]) .focus\:ring-4:focus,
+:root:not([data-theme="neo"]) .focus\:ring-8:focus {
+  --tw-ring-shadow: 0 0 #0000 !important;
+  --tw-ring-offset-shadow: 0 0 #0000 !important;
+}
+
+:root:not([data-theme="neo"]) *:focus {
+  outline: none;
+}
+
+:root[data-theme="neo"] *:focus {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
