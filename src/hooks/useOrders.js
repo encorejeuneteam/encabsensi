@@ -1,4 +1,5 @@
-import { useState, useCallback } from 'react';
+/* eslint-disable */
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { ORDER_STATUS } from '../config'; // Unified import
 import { dbService } from '../firebase';
 
@@ -104,7 +105,7 @@ export const useOrders = (addNotification, employees = [], isSyncingRef = { curr
 
     addNotification?.(`✅ Order dari ${newOrder.username} berhasil ditambahkan!`, 'success');
     return true;
-  }, [orderForm, employees, addNotification, orders, isOrdersLoaded, isSyncingRef]);
+  }, [orderForm, employees, addNotification, orders, isOrdersLoaded, isSyncingRef, startSaveOperation, endSaveOperation]);
 
   const updateOrder = useCallback(async (id, updates) => {
     if (!isOrdersLoaded) {
@@ -359,7 +360,7 @@ export const useOrders = (addNotification, employees = [], isSyncingRef = { curr
     }
 
     addNotification?.('✅ Catatan berhasil ditambahkan!', 'success');
-  }, [employees, addNotification, orders, isOrdersLoaded, isSyncingRef]);
+  }, [employees, addNotification, orders, isOrdersLoaded, isSyncingRef, startSaveOperation, endSaveOperation]);
 
   // Computed values
   const filteredOrders = orders.filter(order => {

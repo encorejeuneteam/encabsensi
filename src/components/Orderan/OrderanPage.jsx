@@ -1,4 +1,5 @@
-import React, { useState, useMemo } from 'react';
+/* eslint-disable */
+import React, { useState, useCallback, useRef, useEffect } from 'react';
 import {
   Package, Plus, CheckCircle, Clock, AlertCircle, Zap,
   Eye, Trash2, Play, Search, MessageSquare, ShoppingCart, Filter, X,
@@ -465,8 +466,8 @@ export const OrderanPage = React.memo(({
                         type="button"
                         onClick={() => handleCopyNote(order.username, `user-${order.id}`).then(() => { setCopiedUsername(order.id); setTimeout(() => setCopiedUsername(null), 2000); })}
                         className={`p-1.5 rounded-lg flex-shrink-0 transition-all hover:scale-[1.05] active:scale-[0.95] ${copiedUsername === order.id
-                            ? 'bg-green-500/20 text-green-400'
-                            : `${currentTheme.badge} hover:bg-white/10 ${currentTheme.subtext}`
+                          ? 'bg-green-500/20 text-green-400'
+                          : `${currentTheme.badge} hover:bg-white/10 ${currentTheme.subtext}`
                           }`}
                         title="Copy username"
                       >

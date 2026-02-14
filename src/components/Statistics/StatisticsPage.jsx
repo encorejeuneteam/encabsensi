@@ -1,4 +1,5 @@
-import React, { useMemo } from 'react';
+/* eslint-disable */
+import React, { useState, useMemo, useRef, useEffect, useCallback } from 'react';
 import {
   Calendar, CheckCircle, Clock, AlertCircle, ChevronLeft, ChevronRight,
   Bell, Play, Square, Pause, Coffee

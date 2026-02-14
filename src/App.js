@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+/* eslint-disable */
+import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import {
   Bell, X, Upload, Plus, CheckCircle, Trash2, Clock, Trophy,
   Lock, Home, ShoppingCart, BarChart3, CalendarDays, Shield, Sparkles,

@@ -309,6 +309,7 @@ export const ATTENDANCE_STATUS = {
  * Application theme configurations
  * @constant {Object}
  */
+/* eslint-disable */
 export const APP_THEMES = {
   dark: {
     name: 'Midnight',

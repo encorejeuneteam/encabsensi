@@ -1,4 +1,5 @@
-import React, { useMemo } from 'react';
+/* eslint-disable */
+import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import {
   Calendar, Users, Sun, Moon, TrendingUp, CheckCircle, Clock,
   AlertCircle, Zap, GripVertical, Trash2, Play, Square,

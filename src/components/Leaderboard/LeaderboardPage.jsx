@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable */
+import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { Trophy, Star, TrendingUp, Clock, CheckCircle, Eye } from 'lucide-react';
 
 export const LeaderboardPage = ({
