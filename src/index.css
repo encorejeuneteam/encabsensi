@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== GOOGLE FONTS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ===== BASE ===== */
+* {
+  scroll-behavior: smooth;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes slide-in-right {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-slide-in-right { animation: slide-in-right 0.3s ease-out; }
+.animate-fade-in { animation: fade-in 0.2s ease-out; }
+
+/* ===== SOFT SCROLLBAR ===== */
+.scrollbar-thin::-webkit-scrollbar { width: 5px; }
+.scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 10px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.35);
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  width: 220px;
+  min-width: 220px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 40;
+}
+
+.sidebar-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(148, 163, 184, 0.8);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+}
+.sidebar-nav-item:hover {
+  color: #e2e8f0;
+  background: rgba(255, 255, 255, 0.04);
+}
+.sidebar-nav-item.active {
+  color: #e2e8f0;
+  background: rgba(99, 139, 255, 0.12);
+  font-weight: 600;
+}
+.sidebar-nav-item.active .nav-icon {
+  color: #818cf8;
+}
+
+/* ===== GLOBAL SOFT TRANSITIONS ===== */
+button, a, input, textarea, select {
+  transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease, transform 120ms ease, box-shadow 200ms ease, opacity 200ms ease;
+}
+
+/* ===== REMOVE HARSH BORDERS FOR NON-NEO THEMES ===== */
+:root:not([data-theme="neo"]) button {
+  --btn-outline-shadow: none;
+  box-shadow: none;
+}
+
+/* ===== MAIN CONTENT AREA ===== */
+.main-content {
+  flex: 1;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.main-content::-webkit-scrollbar { width: 6px; }
+.main-content::-webkit-scrollbar-track { background: transparent; }
+.main-content::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.15);
+  border-radius: 10px;
+}
+
+/* ===== RESPONSIVE SIDEBAR ===== */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 60px;
+    min-width: 60px;
+  }
+  .sidebar .sidebar-label,
+  .sidebar .sidebar-brand-text,
+  .sidebar .sidebar-user-info,
+  .sidebar .sidebar-sync-text {
+    display: none;
+  }
+  .sidebar-nav-item {
+    justify-content: center;
+    padding: 10px;
+  }
+}
+
+/* ===== FOCUS STYLES ===== */
+:root:not([data-theme="neo"]) *:focus {
+  outline: none;
+}
+:root[data-theme="neo"] *:focus {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
